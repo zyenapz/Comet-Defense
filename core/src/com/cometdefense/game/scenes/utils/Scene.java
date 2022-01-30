@@ -14,7 +14,8 @@ public abstract class Scene {
     public abstract void update();
     public abstract void draw(SpriteBatch batch);
 
-    protected void requestManager(SceneManager manager, SceneRequest request) {
+    protected void requestManager(SceneRequest request) {
+        SceneManager manager = SceneManager.getInstance();
         manager.receiveRequest(request);
-    };
+    }
 }
