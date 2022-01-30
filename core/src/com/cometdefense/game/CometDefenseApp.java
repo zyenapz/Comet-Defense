@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.cometdefense.game.scenes.utils.SceneManager;
 
-import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
-import static com.cometdefense.game.data.DisplayContext.VIEWPORT_WIDTH;
+import static com.cometdefense.game.shared.DisplayContext.VIEWPORT_HEIGHT;
+import static com.cometdefense.game.shared.DisplayContext.VIEWPORT_WIDTH;
 
 public class CometDefenseApp extends ApplicationAdapter {
 	SceneManager manager;

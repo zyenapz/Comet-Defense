@@ -1,11 +1,11 @@
 package com.cometdefense.game.scenes.utils;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.cometdefense.game.data.SessionData;
+import com.cometdefense.game.shared.SessionData;
 
 public abstract class Scene {
 
-    protected SessionData sessionData;
+    protected final SessionData sessionData = SessionData.getInstance();
 
     public abstract void create();
     public abstract void dispose();

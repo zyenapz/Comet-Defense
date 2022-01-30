@@ -1,4 +1,4 @@
-package com.cometdefense.game.data;
+package com.cometdefense.game.shared;
 
 public class SessionData {
     // Singleton instance

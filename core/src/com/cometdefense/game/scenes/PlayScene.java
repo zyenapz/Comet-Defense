@@ -1,21 +1,19 @@
 package com.cometdefense.game.scenes;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.cometdefense.game.scenes.utils.Scene;
-import com.cometdefense.game.scenes.utils.SceneRequest;
+import com.cometdefense.game.sprites.Player;
 
-import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
+import static com.cometdefense.game.shared.DisplayContext.*;
 
 public class PlayScene extends Scene {
-    private Texture image;
+    // Textures
+    private Texture playerImage;
 
-    public PlayScene() {
-
-    }
+    // Sprites
+    private Player thePlayer;
 
     // * * * * * * * * * * * * * * * * * * * *
     //    Resource creation / destruction
@@ -23,12 +21,21 @@ public class PlayScene extends Scene {
 
     @Override
     public void create() {
-        image = new Texture("images/badlogic.jpg");
+        // Create the player
+        playerImage = new Texture("images/icon.png");
+
+        Rectangle pRect = new Rectangle();
+        pRect.width = playerImage.getWidth() * SPRITE_SCALE;
+        pRect.height = playerImage.getHeight() * SPRITE_SCALE;
+        pRect.x = (VIEWPORT_WIDTH / 2) - (pRect.width / 2);
+        pRect.y = 32;
+
+        thePlayer = new Player(playerImage, pRect);
     }
 
     @Override
     public void dispose() {
-        image.dispose();
+        playerImage.dispose();
     }
 
     // * * * * * * * * * * * * * * * * * * * *
@@ -37,18 +44,16 @@ public class PlayScene extends Scene {
 
     @Override
     public void handleEvents() {
-        if(Gdx.input.isKeyPressed(Input.Keys.Q)) {
 
-        }
     }
 
     @Override
     public void update() {
-
+        thePlayer.update();
     }
 
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(image, 30, 30);
+        thePlayer.draw(batch);
     }
 }

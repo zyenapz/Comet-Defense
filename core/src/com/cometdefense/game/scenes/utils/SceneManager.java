@@ -1,16 +1,15 @@
 package com.cometdefense.game.scenes.utils;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cometdefense.game.scenes.*;
 
-import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
+import static com.cometdefense.game.shared.DisplayContext.VIEWPORT_HEIGHT;
 
 public class SceneManager
 {
     // **==**==**==**== **==**==**==**== **==**==**==**==
-    //                      Members
+    //                      Fields
     // **==**==**==**== **==**==**==**== **==**==**==**==
     private Scene currentScene;
     private BitmapFont font;
