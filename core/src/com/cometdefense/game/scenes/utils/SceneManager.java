@@ -1,22 +1,31 @@
 package com.cometdefense.game.scenes.utils;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cometdefense.game.scenes.*;
 
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
+
 public class SceneManager
 {
+    // **==**==**==**== **==**==**==**== **==**==**==**==
+    //                      Members
+    // **==**==**==**== **==**==**==**== **==**==**==**==
+    private Scene currentScene;
+    private BitmapFont font;
+
     // * * * * * * * * * * * * * * * * * * * *
     //          Singleton creation
     // * * * * * * * * * * * * * * * * * * * *
 
     private static SceneManager instance = new SceneManager();
 
-    private Scene currentScene;
-
     private SceneManager() {
-        Scene initialScene = new PlayScene();
-        currentScene = initialScene;
+        currentScene = new PlayScene();
         currentScene.create();
+
+        font = new BitmapFont();
     }
 
     public static SceneManager getInstance() {
@@ -40,6 +49,12 @@ public class SceneManager
     public void draw(SpriteBatch batch) {
         // Delegate
         currentScene.draw(batch);
+        drawCurrentSceneLabel(batch);
+    }
+
+    private void drawCurrentSceneLabel(SpriteBatch batch) {
+        String className = currentScene.getClass().getSimpleName();
+        font.draw(batch, className, 0, VIEWPORT_HEIGHT);
     }
 
     // * * * * * * * * * * * * * * * * * * * *

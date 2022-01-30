@@ -1,7 +1,11 @@
 package com.cometdefense.game.scenes;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cometdefense.game.scenes.utils.Scene;
+
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_WIDTH;
 
 public class MenuScene extends Scene {
     public MenuScene() {

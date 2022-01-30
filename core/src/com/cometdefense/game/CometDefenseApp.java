@@ -24,7 +24,7 @@ public class CometDefenseApp extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0, 0, 0, 1);
 
 		manager.handleEvents();
 		manager.update();

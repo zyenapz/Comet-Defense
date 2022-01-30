@@ -1,8 +1,14 @@
 package com.cometdefense.game.scenes;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cometdefense.game.scenes.utils.Scene;
+import com.cometdefense.game.scenes.utils.SceneRequest;
+
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
 
 public class PlayScene extends Scene {
     private Texture image;
@@ -31,7 +37,9 @@ public class PlayScene extends Scene {
 
     @Override
     public void handleEvents() {
+        if(Gdx.input.isKeyPressed(Input.Keys.Q)) {
 
+        }
     }
 
     @Override
