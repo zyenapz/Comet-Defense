@@ -1,14 +1,13 @@
 package com.cometdefense.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.cometdefense.game.data.SessionData;
 import com.cometdefense.game.scenes.utils.SceneManager;
+
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_HEIGHT;
+import static com.cometdefense.game.data.DisplayContext.VIEWPORT_WIDTH;
 
 public class CometDefenseApp extends ApplicationAdapter {
 	SceneManager manager;
@@ -20,7 +19,7 @@ public class CometDefenseApp extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		manager = SceneManager.getInstance();
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false,800, 600);
+		camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 	}
 
 	@Override
