@@ -1,22 +1,25 @@
-package com.cometdefense.game.sprites;
+package com.cometdefense.game.actors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.cometdefense.game.sprites.utils.Sprite;
+import com.cometdefense.game.actors.utils.Actor;
 
 import static com.cometdefense.game.shared.Constants.DIAGONAL_FIX;
+import static com.cometdefense.game.shared.DisplayContext.SPRITE_SCALE;
+import static com.cometdefense.game.shared.DisplayContext.VIEWPORT_WIDTH;
 
-public class Player extends Sprite {
+public class Player extends Actor {
 
+    private float speed = 4;
     private Vector2 velocity;
-    private float speed = 2;
 
-    public Player(Texture image, Rectangle rect) {
-        super(image, rect);
-
+    public Player(Sprite sprite, Rectangle rect) {
+        super(sprite, rect);
         velocity = new Vector2(0, 0);
     }
 
@@ -45,6 +48,7 @@ public class Player extends Sprite {
 
         rect.x += velocity.x;
         rect.y += velocity.y;
+
     }
 
     private void resetVelocity() {
