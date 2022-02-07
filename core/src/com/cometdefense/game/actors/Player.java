@@ -8,10 +8,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.cometdefense.game.actors.utils.Actor;
+import com.cometdefense.game.shared.DisplayContext;
 
 import static com.cometdefense.game.shared.Constants.DIAGONAL_FIX;
-import static com.cometdefense.game.shared.DisplayContext.SPRITE_SCALE;
-import static com.cometdefense.game.shared.DisplayContext.VIEWPORT_WIDTH;
+import static com.cometdefense.game.shared.DisplayContext.*;
 
 public class Player extends Actor {
 
@@ -26,7 +26,20 @@ public class Player extends Actor {
     @Override
     public void update() {
         resetVelocity();
+        move();
+        keepWithinBounds();
 
+        rect.x += velocity.x;
+        rect.y += velocity.y;
+
+    }
+
+    private void resetVelocity() {
+        velocity.x = 0;
+        velocity.y = 0;
+    }
+
+    private void move() {
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             velocity.x -= speed;
         }
@@ -45,14 +58,27 @@ public class Player extends Actor {
             velocity.x *= DIAGONAL_FIX;
             velocity.y *= DIAGONAL_FIX;
         }
-
-        rect.x += velocity.x;
-        rect.y += velocity.y;
-
     }
 
-    private void resetVelocity() {
-        velocity.x = 0;
-        velocity.y = 0;
+    private void keepWithinBounds() {
+        // X-axis
+        if(rect.x + velocity.x <= 0) {
+            rect.x = 0;
+            velocity.x = 0;
+        }
+        else if(rect.x + velocity.x + rect.width >= VIEWPORT_WIDTH) {
+            rect.x = VIEWPORT_WIDTH - rect.width;
+            velocity.x = 0;
+        }
+
+        // Y-axis
+        if(rect.y + velocity.y <= 0) {
+            rect.y = 0;
+            velocity.y = 0;
+        }
+        else if(rect.y + velocity.y + rect.height >= VIEWPORT_HEIGHT) {
+            rect.y = VIEWPORT_HEIGHT - rect.height;
+            velocity.y = 0;
+        }
     }
 }

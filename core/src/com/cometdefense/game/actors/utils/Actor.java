@@ -20,7 +20,7 @@ public abstract class Actor {
     public abstract void update();
 
     public void draw(SpriteBatch batch) {
-        sprite.setScale(SPRITE_SCALE);
+        sprite.setSize(rect.width, rect.height);
         sprite.setPosition(rect.x, rect.y);
         sprite.draw(batch);
     }
