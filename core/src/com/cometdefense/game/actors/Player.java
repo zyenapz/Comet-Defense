@@ -40,17 +40,20 @@ public class Player extends Actor {
     }
 
     private void move() {
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+        if(Gdx.input.isKeyPressed(Input.Keys.A)) {
             velocity.x -= speed;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+        if(Gdx.input.isKeyPressed(Input.Keys.D)) {
             velocity.x += speed;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if(Gdx.input.isKeyPressed(Input.Keys.W)) {
             velocity.y += speed;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
             velocity.y -= speed;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            // Shoot
         }
 
         // Diagonal speed fix
